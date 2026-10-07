@@ -4,7 +4,7 @@ import { generateToken } from "@/lib/jwt";
 
 export async function POST(req) {
   try {
-    connectDB();
+    await connectDB();
     const body = await req.json();
     const user = await User.findOne({ email: body.email });
     if (!user) {
